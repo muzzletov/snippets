@@ -4,8 +4,8 @@ const networkSettledEvent = new Event('networkSettled');
 initInterceptor = () => {
 
    var connectionCounter = 0;
-   var _open = XMLHttpRequest.prototype.open;
-   var _onloadend = XMLHttpRequest.prototype.onloadend;
+   const _open = XMLHttpRequest.prototype.open;
+   const _onloadend = XMLHttpRequest.prototype.onloadend;
 
    XMLHttpRequest.prototype.open = function (data) {
       connectionCounter++;
