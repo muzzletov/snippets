@@ -1,4 +1,8 @@
+
+const networkSettledEvent = new Event('networkSettled');
+
 initInterceptor = () => {
+
    var connectionCounter = 0;
    var _open = XMLHttpRequest.prototype.open;
    var _onloadend = XMLHttpRequest.prototype.onloadend;
@@ -10,7 +14,7 @@ initInterceptor = () => {
 
    XMLHttpRequest.prototype.onloadend = function (data) {
       connectionCounter--;
-      if (connectionCounter == 0) document.dispatchEvent(new NetworkSettledEvent());
+      if (connectionCounter == 0) document.dispatchEvent(networkSettledEvent);
       _onloadend.call(this, data);
    };
 
@@ -19,6 +23,7 @@ initInterceptor = () => {
       connectionCounter++;
       return _fetch.apply(this, arguments).then((result)=> {
          connectionCounter--;
+         if (connectionCounter == 0) document.dispatchEvent(networkSettledEvent);
          return result;
       });
    }
