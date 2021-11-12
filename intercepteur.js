@@ -13,7 +13,7 @@
    class XMLHttpRequestIntercepteur {
       
      constructor() {                   
-       // Let's constructeur our intercepteuring class - I feel much baguette lately
+       // Let's constructeur our intercepteuring class - I feel much 🥖 (baguette) lately
        this.requestObject = new _XMLHttpRequest();
      }
 
