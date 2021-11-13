@@ -6,7 +6,7 @@
 
   (() => {
 
-    console.log("-*-INTERCEPTEUR LOADED-*-");
+    console.log("-*-INTERCEPTEUR LOADED-*-"); // PEW PEW RA-TA-TA-TA-TA
     
     /**
      * TÖDÖ: implement granular urlMap, differentiate between HTTP METHODS > URLS > HEADERS
