@@ -9,7 +9,7 @@
     console.log("-*-INTERCEPTEUR LOADED-*-");
 
     class XMLHttpRequestIntercepteur extends XMLHttpRequest {
-      static const _XMLHttpRequest = XMLHttpRequest;
+      static _XMLHttpRequest = XMLHttpRequest;
 
       constructor() {
         super();
