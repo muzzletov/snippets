@@ -1,92 +1,120 @@
 
 /*
 * 
-* 
+*  Copyright muzzletov !!!
 */
 
-(() => {
-   
-   console.log("-*-INTERCEPTEUR LOADED-*-");
-   
-   const _XMLHttpRequest = XMLHttpRequest;
-   
-   class XMLHttpRequestIntercepteur {
-      
-     constructor() {                   
-       // Let's constructeur our intercepteuring class - I feel much 🥖 (baguette) lately
-       this.requestObject = new _XMLHttpRequest();
-     }
-
-     addEventListener(eventName, func) {
-       this.requestObject.addEventListener(eventName, (...e)=>func(...e));
-     }
-
-     removeEventListener(eventName, func) {
-      this.requestObject.removeEventListener(eventName, (...e)=>func(...e));
-     }
-
-     overrideMimeType(mimetype) { this.requestObject.overrideMimeType(mimetype); }
-
-     abort() { this.requestObject.abort(); }
-
-     getAllResponseHeaders() { return this.requestObject.getAllResponseHeaders(); }
-
-     set ontimeout(callback) {
-      this.requestObject.ontimeout = (e)=>callback(e);
-    }
-
-     set onerror(callback) {
-      this.requestObject.onerror = (e)=>callback(e);
-    }
-
-     set onabort(callback) {
-      this.requestObject.onabort = (e)=>callback(e);
-    }
-
-     set onloadstart(callback) {
-      this.requestObject.onloadstart = (e)=>callback(e);
-    }
-
-     set onload(callback) {
-       this.requestObject.onload = (e)=>callback(e);
-     }
-
-     set onloadend(callback) {
-       this.requestObject.onloadend = (e)=>callback(e);
-     }
-
-     sendAsBinary(data) {
-       this.requestObject.sendAsBinary(data);
-     }
-
-     setRequestHeader(name, value) {
-       this.requestObject.setRequestHeader(name, value);
-     }
-
-     open(...args) {
-       this.requestObject.open(...args);
-     }
-
-     get status() {
-         return this.requestObject.status; 
-     }
+  (() => {
      
-     get statusText() {
-      return this.requestObject.statusText; 
+    console.log("-*-INTERCEPTEUR LOADED-*-");
+    
+    const _XMLHttpRequest = XMLHttpRequest;
+    
+    class XMLHttpRequestIntercepteur extends XMLHttpRequest {
+      constructor() {
+        super();
       }
-     get response() {
-        return this.requestObject.response;
-     }
 
-     get onreadystatechange() {
-       return this.requestObject.onreadystatechange;
-     }
+      addEventListener(eventName, func) {
+        super.addEventListener(eventName, (...e)=>func(...e));
+      }
 
-     send(body) {
-       this.requestObject.send(body);
-     }
-   }
-   
-   XMLHttpRequest = XMLHttpRequestIntercepteur;
+      removeEventListener(eventName, func) {
+        super.removeEventListener(eventName, (...e)=>func(...e));
+      }
 
- })();
+      overrideMimeType(mimetype) { super.overrideMimeType(mimetype); }
+
+      abort() { super.abort(); }
+
+      getAllResponseHeaders() { return super.getAllResponseHeaders(); }
+
+      set ontimeout(callback) {
+        super.ontimeout = (e)=>callback(e);
+      }
+
+      set onerror(callback) {
+        super.onerror = (e)=>callback(e);
+      }
+
+      set onabort(callback) {
+        super.onabort = (e)=>callback(e);
+      }
+
+      set onloadstart(callback) {
+        super.onloadstart = (e)=>callback(e);
+      }
+
+      set onload(callback) {
+        super.onload = (e)=>callback(e);
+      }
+
+      set onloadend(callback) {
+        super.onloadend = (e)=>callback(e);
+      }
+
+
+      sendAsBinary(data) {
+        super.sendAsBinary(data);
+      }
+
+      setRequestHeader(name, value) {
+        super.setRequestHeader(name, value);
+      }
+
+      set onloadstart(callback) {
+        super.onloadstart = (e)=>callback(e);
+      }
+
+      open(...args) {
+        super.open(...args);
+
+      }
+
+      get status() {
+        return super.status;
+      }
+
+      get statusText() {
+        return super.statusText;
+      }
+
+      get response() {
+        return super.response;
+      }
+
+      get responseText() {
+        return super.responseText;
+      }
+
+      get responseURL() {
+        return super.responseURL;
+      }
+
+      get responseXML() {
+        return super.responseXML;
+      }
+
+      get bytesSeen() {
+        return super.bytesSeen;
+      }
+
+      get responseType() {
+        return super.responseType;
+      }
+
+      set onreadystatechange(callback) {
+        super.onreadystatechange = callback;
+      }
+
+      get readyState() {
+        return super.readyState;
+      }
+
+      send(body) {
+        super.send(body);
+      }
+    }
+    XMLHttpRequest = XMLHttpRequestIntercepteur;
+
+  })();
