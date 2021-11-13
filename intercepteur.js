@@ -7,10 +7,10 @@
   (() => {
      
     console.log("-*-INTERCEPTEUR LOADED-*-");
-    
-    const _XMLHttpRequest = XMLHttpRequest;
-    
+
     class XMLHttpRequestIntercepteur extends XMLHttpRequest {
+      static const _XMLHttpRequest = XMLHttpRequest;
+
       constructor() {
         super();
       }
@@ -115,6 +115,7 @@
         super.send(body);
       }
     }
+    
     XMLHttpRequest = XMLHttpRequestIntercepteur;
 
   })();
