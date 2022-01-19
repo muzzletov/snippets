@@ -1,6 +1,8 @@
 # intercepteur.js
 
- ```*intercepteur.js* network traffic inline, mocking requests the easy way.
- lol.```
+ ```
+ *intercepteur.js* network traffic inline, mocking requests the easy way.
+ lol.
+ ```
 
 
