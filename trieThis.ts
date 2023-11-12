@@ -1,5 +1,3 @@
-/* eslint-disable linebreak-style */
-/* eslint-disable no-continue */
 interface ExpandedNode {
     hasItem: boolean;
     letter?: string;
@@ -85,7 +83,6 @@ function collectTerms(root: CollapsedNode) :Array<string> {
     partial = '';
 
     while (current.children.length > 0) {
-      // eslint-disable-next-line prefer-destructuring
       current = current.children[0];
       partial = `${partial}${node.partial}`;
     }
@@ -113,9 +110,7 @@ function traverseExpandedTrie(root: CollapsedNode, currentNode: ExpandedNode, pa
     newNode.partial = partial;
 
     root.children.push(newNode);
-    // eslint-disable-next-line no-param-reassign
     root = newNode;
-    // eslint-disable-next-line no-param-reassign
     partial = '';
   }
 
@@ -133,11 +128,6 @@ function createCollapsedTrie(expandedRoot: ExpandedNode) : CollapsedNode {
 
   return collapsedRoot;
 }
-
-/*
-class PatriciaTrie {
-    private nodeList: Array<ExpandedNode> = [];
-} */
 
 const test = ['hallo', 'wie', 'gehts', 'fussball', 'fusswärmer', 'fusilli', 'funktioniert'];
 
